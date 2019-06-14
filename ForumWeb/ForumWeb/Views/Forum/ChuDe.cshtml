@@ -1,0 +1,6 @@
+﻿@model IEnumerable<ForumWeb.Models.ChuDe>
+@foreach (var item in Model)
+{
+    <li><a href="@Url.Action("TheoChuDe","Forum", new { id = item.MaChuDe })">@item.TenChuDe</a></li>
+}
+

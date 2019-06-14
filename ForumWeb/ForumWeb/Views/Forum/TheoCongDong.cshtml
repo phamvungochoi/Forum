@@ -1,0 +1,13 @@
+﻿@model IEnumerable<ForumWeb.Models.BaiGui>
+@{
+    ViewBag.Title = "TheoCongDong";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+@foreach (var item in Model)
+{
+    <li>
+        <a href="@Url.Action("ChiTietBaiGui","Forum", new { id = item.MaBaiGui })" style="font-size:larger">
+            @item.TenBai
+        </a>
+    </li>
+}

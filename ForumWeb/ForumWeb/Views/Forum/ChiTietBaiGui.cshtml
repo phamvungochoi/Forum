@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "ChiTietBaiGui";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+    <section id="blogs" class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="row">
+                        <div class="row m0 blog">
+                            <div class="row m0 blogDateTime">
+                                <i class="fa fa-calendar"></i> @Model.NgayGuiBai
+                            </div>
+                            <div class="row m0 featureImg">
+                                <a href="single-post.html">
+                                    <img src="~/Images/projects/project1.png" alt="Faceted Search Has Landed" class="img-responsive">
+                                </a>
+                            </div>
+                            <div class="row m0 postExcerpts">
+                                <div class="row m0 postExcerptInner">
+                                    <a href="single-post.html" class="postTitle row m0"><h4>@Model.TenBai</h4></a>
+                                    <p>
+                                        @Model.NoiDung    
+                                    </p>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+
+                </div>
+                <aside class="col-sm-3 sidebar">
+                    <div class="row m0 contactWidget widgetS">
+                        <h4>Contact us</h4>
+                        <ul class="list-unstyled">
+                            <li><i class="fa fa-phone"></i> 9930 1234 5678</li>
+                            <li><i class="fa fa-envelope"></i> contact@yourdomain.com</li>
+                            <li><i class="fa fa-home"></i> street address example</li>
+                        </ul>
+                    </div>
+                    <div class="row m0 textWidget widgetS">
+                        <h4>Quote</h4>
+                        <p>
+                            I have no special talent. I am only passionately curious.
+                        </p>
+                        <p style="text-align:right">-Albert Einstein-</p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>

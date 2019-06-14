@@ -1,0 +1,96 @@
+﻿@model IEnumerable<ForumWeb.Models.BaiGui>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>.....</text>
+    }
+}
+<section id="blogs" class="row">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="row m0 blog">
+                            <div class="row m0 blogInner">
+                                <div class="col-sm-6 p0">
+                                    <div class="row m0 blogDateTime">
+                                        <i class="fa fa-calendar"></i> @item.NgayGuiBai
+                                    </div>
+                                    <div class="row m0 featureImg">
+                                        <a href="@Url.Action("ChiTietBaiGui","Forum", new { id = item.MaBaiGui })">
+                                            <img src="../../Images/blog/blog1.png" alt="Faceted Search Has Landed" class="img-responsive" />
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 p0">
+                                    <div class="row m0 postExcerpts">
+                                        <div class="row m0 postExcerptInner">
+                                            <a href="@Url.Action("ChiTietBaiGui","Forum", new { id = item.MaBaiGui })" class="postTitle row m0"><h4>@item.TenBai</h4></a>
+                                            <p>@Truncate(item.NoiDung,200)</p>
+                                            <a href="@Url.Action("ChiTietBaiGui","Forum", new { id = item.MaBaiGui })" class="readMore">read more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="row paginationRow m0">
+                    <div class="paginationInner m0 row">
+                        <ul class="pagination fleft">
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <aside class="col-sm-3 sidebar">
+                <div class="row m0 recentPostWidget widgetS">
+                    <h4>Recent Posts</h4>
+                    <div class="row m0 recentblogs">
+                        @foreach (var item in Model)
+                        {
+                            <div class="media recentblog">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="../../Images/blog/recent1.png" alt="" />
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#"><h5 class="media-heading">@item.TenBai</h5></a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="row m0 contactWidget widgetS">
+                    <h4>Contact us</h4>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-phone"></i> 9930 1234 5678</li>
+                        <li><i class="fa fa-envelope"></i> contact@yourdomain.com</li>
+                        <li><i class="fa fa-home"></i> street address example</li>
+                    </ul>
+                </div>
+                <div class="row m0 textWidget widgetS">
+                    <h4>Quote</h4>
+                    <p>
+                        I have no special talent. I am only passionately curious.
+                    </p>
+                    <p style="text-align:right">-Albert Einstein-</p>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
