@@ -1,0 +1,94 @@
+﻿@model ForumWeb.Models.BaiGui
+
+@{
+    ViewBag.Title = "Chi Tiết";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+
+    <h2 style="color:white">Chi Tiết Bài Viết</h2>
+
+<div style="color:white">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Mã Chủ Đề")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaChuDe)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Mã Cộng Đồng")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaCongDong)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Mã Lĩnh Vực")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaLinhVuc)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Mã Người Dùng")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaNguoiSuDung)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Số Điện Thoại")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoDienThoai)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Email")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Ngày Gửi Bài")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayGuiBai)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Tên Bài")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenBai)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Nội Dung Bài Viết")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoiDung)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Edit", new { id = Model.MaBaiGui })" rel="tooltip" data-placement="left" title="Sửa" class="btn btn-success btn-simple">
+        <i class="material-icons">edit</i>
+    </a>
+    <a href="@Url.Action("BaiViet", new { id = Model.MaBaiGui })" rel="tooltip" data-placement="left" title="Back To List" class="btn btn-success btn-simple">
+        <i class="fa fa-sign-out"></i>
+    </a>
+</p>

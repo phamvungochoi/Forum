@@ -1,0 +1,139 @@
+﻿@using ForumWeb.Models
+@using PagedList.Mvc
+@model PagedList.PagedList<ForumWeb.Models.BaiGui>
+
+@{
+    ViewBag.Title = "Bài Viết";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>.....</text>
+    }
+}
+    <h2>Danh Sách Bài Viết</h2>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-primary">
+                    <h3 class="card-title">Danh sách bài viết</h3>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-primary">
+                                <tr>
+                                    <th>
+                                        @Html.DisplayName("Mã Bài Gửi")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("Mã Chủ Đề")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("Mã Cộng Đồng")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("Mã Lĩnh Vực")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("Mã Người Dùng")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("Số Điện Thoại")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("Email")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("Ngày Gửi")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("Tên Bài")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("Nội Dung")
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MaBaiGui)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MaChuDe)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MaCongDong)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MaLinhVuc)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MaNguoiSuDung)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SoDienThoai)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Email)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NgayGuiBai)
+                                    </td>
+                                    <td>
+                                        @Truncate(item.TenBai, 20)
+                                    </td>
+                                    <td>
+                                        @Truncate(item.NoiDung, 20)
+                                    </td>
+                                    <td class="td-actions text-right">
+                                        <a href="@Url.Action("Details", new { id = item.MaBaiGui })" rel="tooltip" data-placement="left" title="Chi tiết" class="btn btn-info btn-simple">
+                                            <i class="material-icons">description</i>
+                                        </a>
+                                        <a href="@Url.Action("SuaBai", new { id = item.MaBaiGui })" rel="tooltip" data-placement="left" title="Sửa" class="btn btn-success btn-simple">
+                                            <i class="material-icons">edit</i>
+                                        </a>
+                                        <a href="@Url.Action("XoaBai", new { id = item.MaBaiGui })" rel="tooltip" data-placement="left" title="Xóa" class="btn btn-danger btn-simple">
+                                            <i class="material-icons">close</i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+                        <div class="MenuTrang">
+                            @Html.PagedListPager(Model, page => Url.Action("BaiViet", new { page = page }))
+                        </div>
+                        <style>
+                            .MenuTrang ul {
+                                margin: 0 auto;
+                            }
+
+                            .MenuTrang li {
+                                display: inline;
+                                padding: 4px;
+                                border: 1px solid #d46cbe;
+                                margin: 2px;
+                            }
+
+                                .MenuTrang li:hover {
+                                    background-color: purple;
+                                    color: white;
+                                }
+                        </style>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

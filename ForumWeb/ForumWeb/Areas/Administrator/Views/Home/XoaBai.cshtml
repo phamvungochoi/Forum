@@ -1,0 +1,99 @@
+﻿@model ForumWeb.Models.BaiGui
+
+@{
+    ViewBag.Title = "Xóa Bài";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+<div style="color:Red">
+    <h2>XÁC NHẬN THÔNG TIN BÀI VIẾT CẦN XÓA</h2>
+
+    <h3>Bạn Có Thực Sự Muốn Xóa Không?</h3>
+</div>
+<hr />
+<dl class="dl-horizontal" style="color:white">
+    <dt>
+        @Html.DisplayNameFor(model => model.MaChuDe)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.MaChuDe)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.MaCongDong)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.MaCongDong)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.MaLinhVuc)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.MaLinhVuc)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.MaNguoiSuDung)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.MaNguoiSuDung)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.SoDienThoai)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.SoDienThoai)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Email)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Email)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.NgayGuiBai)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.NgayGuiBai)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.TenBai)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.TenBai)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.NoiDung)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.NoiDung)
+    </dd>
+
+</dl>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a href="@Url.Action("BaiViet", new { id = Model.MaBaiGui })" rel="tooltip" data-placement="left" title="Back To List" class="btn btn-success btn-simple">
+            <i class="fa fa-sign-out"></i>
+        </a>
+    </div>
+}
+</div>

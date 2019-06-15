@@ -1,0 +1,34 @@
+﻿@model ForumWeb.Models.ChuDe
+
+@{
+    ViewBag.Title = "Xóa Chủ Đề";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+
+    <div style="color:Red">
+        <h2>XÁC NHẬN THÔNG TIN CHỦ ĐỀ CẦN XÓA</h2>
+
+        <h3>Bạn Có Thực Sự Muốn Xóa Không?</h3>
+    </div>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenChuDe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenChuDe)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

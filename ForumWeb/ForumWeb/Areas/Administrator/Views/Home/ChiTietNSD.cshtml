@@ -1,0 +1,86 @@
+﻿@model ForumWeb.Models.NguoiSuDung
+
+@{
+    ViewBag.Title = "ChiTietNSD";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+
+    <h2 style="color:white">Chi Tiết Người Dùng</h2>
+
+<div style="color:white">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Tên Đăng Nhập")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenDangNhap)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Mật Khẩu")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatKhau)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Họ Tên")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoTen)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Địa Chỉ")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Giới Tính")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioiTinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Ngày Sinh")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgaySinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Số Điện Thoại")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoDienThoai)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Email")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Edit", new { id = Model.MaNguoiSuDung })" rel="tooltip" data-placement="left" title="Sửa" class="btn btn-success btn-simple">
+        <i class="material-icons">edit</i>
+    </a>
+    <a href="@Url.Action("NguoiSuDung", new { id = Model.MaNguoiSuDung })" rel="tooltip" data-placement="left" title="Back To List" class="btn btn-success btn-simple">
+        <i class="fa fa-sign-out"></i>
+    </a>
+</p>

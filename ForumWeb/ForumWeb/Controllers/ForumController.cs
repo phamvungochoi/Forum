@@ -26,7 +26,7 @@ namespace ForumWeb.Controllers
         }
         public ActionResult RecentPost()
         {
-            var baiguimoi = GetBaiGuis(3);
+            var baiguimoi = GetBaiGuis(5);
             return PartialView(baiguimoi);
         }
         public ActionResult LinhVuc()

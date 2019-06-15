@@ -760,8 +760,8 @@ C:\Users\Admin\Desktop\Forum\ForumWeb\ForumWeb\bin\System.Web.WebPages.Razor.xml
 C:\Users\Admin\Desktop\Forum\ForumWeb\ForumWeb\bin\Newtonsoft.Json.xml
 C:\Users\Admin\Desktop\Forum\ForumWeb\ForumWeb\bin\Antlr3.Runtime.pdb
 C:\Users\Admin\Desktop\Forum\ForumWeb\ForumWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Admin\Desktop\Forum\ForumWeb\ForumWeb\obj\Debug\ForumWeb.csprojAssemblyReference.cache
 C:\Users\Admin\Desktop\Forum\ForumWeb\ForumWeb\obj\Debug\ForumWeb.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\Forum\ForumWeb\ForumWeb\obj\Debug\ForumWeb.csproj.CopyComplete
 C:\Users\Admin\Desktop\Forum\ForumWeb\ForumWeb\obj\Debug\ForumWeb.dll
 C:\Users\Admin\Desktop\Forum\ForumWeb\ForumWeb\obj\Debug\ForumWeb.pdb
+C:\Users\Admin\Desktop\Forum\ForumWeb\ForumWeb\obj\Debug\ForumWeb.csprojAssemblyReference.cache
