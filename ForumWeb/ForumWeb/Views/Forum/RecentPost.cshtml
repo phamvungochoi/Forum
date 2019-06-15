@@ -1,0 +1,14 @@
+﻿@model IEnumerable<ForumWeb.Models.BaiGui>
+@foreach (var item in Model)
+{
+    <div class="media recentblog">
+        <div class="media-left">
+            <a href="#">
+                <img class="media-object" src="../../Images/blog/recent1.png" alt="" />
+            </a>
+        </div>
+        <div class="media-body">
+            <a href="#"><h5 class="media-heading">@item.TenBai</h5></a>
+        </div>
+    </div>
+}

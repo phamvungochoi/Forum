@@ -309,6 +309,7 @@
     <Content Include="vendors\rs-plugin\font\revicons90c6.woff" />
     <Content Include="Views\Shared\_LayoutForum.cshtml" />
     <Content Include="Views\Forum\VietBai.cshtml" />
+    <Content Include="Views\Forum\RecentPost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

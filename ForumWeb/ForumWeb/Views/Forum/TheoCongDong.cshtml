@@ -1,13 +1,54 @@
-﻿@model IEnumerable<ForumWeb.Models.BaiGui>
+﻿@using ForumWeb.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<ForumWeb.Models.BaiGui>
 @{
     ViewBag.Title = "TheoCongDong";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
-@foreach (var item in Model)
+@helper Truncate(string input, int length)
 {
-    <li>
-        <a href="@Url.Action("ChiTietBaiGui","Forum", new { id = item.MaBaiGui })" style="font-size:larger">
-            @item.TenBai
-        </a>
-    </li>
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>.....</text>
+    }
 }
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="row m0 blog">
+            <div class="row m0 blogInner">
+                <div class="col-sm-6 p0">
+                    <div class="row m0 blogDateTime">
+                        <i class="fa fa-calendar"></i> @item.NgayGuiBai
+                    </div>
+                    <div class="row m0 featureImg">
+                        <a href="@Url.Action("ChiTietBaiGui","Forum", new { id = item.MaBaiGui })">
+                            <img src="../../Images/blog/blog1.png" alt="Faceted Search Has Landed" class="img-responsive" />
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-6 p0">
+                    <div class="row m0 postExcerpts">
+                        <div class="row m0 postExcerptInner">
+                            <a href="@Url.Action("ChiTietBaiGui","Forum", new { id = item.MaBaiGui })" class="postTitle row m0"><h4>@item.TenBai</h4></a>
+                            <p>@Truncate(item.NoiDung, 200)</p>
+                            <a href="@Url.Action("ChiTietBaiGui","Forum", new { id = item.MaBaiGui })" class="readMore">read more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="row paginationRow m0">
+    <div class="paginationInner m0 row">
+        <div class="MenuTrang">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+        </div>
+    </div>
+</div>

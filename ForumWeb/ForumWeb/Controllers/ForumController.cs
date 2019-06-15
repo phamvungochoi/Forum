@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 namespace ForumWeb.Controllers
 {
     public class ForumController : Controller
@@ -15,40 +17,53 @@ namespace ForumWeb.Controllers
         {
             return data.BaiGuis.OrderByDescending(a => a.NgayGuiBai).Take(count).ToList();
         }
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            var baiguimoi = GetBaiGuis(4);
-            return View(baiguimoi);
+            int pageNumber = (page ?? 1);
+            int pageSize = 4;
+            var baiguimoi = GetBaiGuis(8);
+            return View(baiguimoi.ToPagedList(pageNumber, pageSize));
+        }
+        public ActionResult RecentPost()
+        {
+            var baiguimoi = GetBaiGuis(3);
+            return PartialView(baiguimoi);
         }
         public ActionResult LinhVuc()
         {
             var linhvuc = from lv in data.LinhVucs select lv;
             return PartialView(linhvuc);
         }
-        public ActionResult TheoLinhVuc(int id)
+        public ActionResult TheoLinhVuc(int id, int ? page)
         {
+            int pageNumber = (page ?? 1);
+            int pageSize = 4;
             var baigui = from bg in data.BaiGuis where bg.MaLinhVuc == id select bg;
-            return View(baigui);
+            return View(baigui.ToPagedList(pageNumber, pageSize));
         }
         public ActionResult CongDong()
         {
             var congdong = from cd in data.CongDongs select cd;
             return PartialView(congdong);
         }
-        public ActionResult TheoCongDong(int id)
+        public ActionResult TheoCongDong(int id, int ? page)
         {
+            int pageNumber = (page ?? 1);
+            int pageSize = 4;
             var baigui = from bg in data.BaiGuis where bg.MaBaiGui == id select bg;
-            return View(baigui);
+            return View(baigui.ToPagedList(pageNumber, pageSize));
         }
         public ActionResult ChuDe()
         {
             var chude = from cde in data.ChuDes select cde;
             return PartialView(chude);
         }
-        public ActionResult TheoChuDe(int id)
+        public ActionResult TheoChuDe(int id, int ? page)
         {
+            int pageNumber = (page ?? 1);
+            int pageSize = 4;
             var baigui = from bg in data.BaiGuis where bg.MaChuDe == id select bg;
-            return View(baigui);
+            return View(baigui.ToPagedList(pageNumber, pageSize));
         }
         public ActionResult ChiTietBaiGui(int id)
         {
